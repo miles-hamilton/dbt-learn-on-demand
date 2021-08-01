@@ -13,9 +13,9 @@ models:
         tests:
           - accepted_values: 
               values: [
-                'returned', 
                 'completed', 
-                'shipped', 
                 'placed',
                 'return_pending'
+                'returned', 
+                'shipped', 
               ]
