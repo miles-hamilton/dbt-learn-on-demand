@@ -15,7 +15,7 @@ models:
               values: [
                 'completed', 
                 'placed',
-                'return_pending'
+                'return_pending',
                 'returned', 
                 'shipped', 
               ]
