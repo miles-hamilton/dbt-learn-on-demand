@@ -9,9 +9,17 @@ models:
         tests:
           - unique
           - not_null
+
   - name: stg_orders
+    description: Orders from jaffle shop app.
     columns: 
+      - name: order_id
+        description: Primary key for stg_orders.
+        tests: 
+          - unique
+          - not_null
       - name: status
+        description: '{{ doc("order_status") }}'
         tests:
           - accepted_values: 
               values: [
@@ -22,13 +30,35 @@ models:
                 'shipped', 
               ]
       - name: customer_id 
+        description: Customer ID related to the order.
         tests:
+          - not_null
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+
   - name: stg_payments
+    description: Payment data for each order.
     columns: 
       - name: payment_id
+        description: Primary key of stg_payments.
         tests:
           - unique
           - not_null
+      - name: payment_method 
+        description: '{{ doc("payment_method") }}'
+        tests:
+          - not_null
+          - accepted_values: 
+              values: [
+                'bank_transfer',
+                'coupon',
+                'credit_card', 
+                'gift_card'
+              ]
+      - name: order_id 
+        description: Order ID this payment is for 
+        tests: 
+          - relationships: 
+              to: ref('stg_orders')
+              field: order_id
