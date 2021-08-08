@@ -3,7 +3,7 @@ version: 2
 sources: 
   - name: stripe
     description: A replica of Stripe data.
-    database: dbt-tutorial
+    database: raw_db
     tables:
       - name: payment
         loaded_at_field: _batched_at
