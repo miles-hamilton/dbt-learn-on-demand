@@ -1,5 +1,3 @@
 packages:
-  - package: dbt-labs/dbt_utils
-    version: 0.7.1
-  - package: fivetran/github
-    version: 0.3.0
+  - git: https://gitlab.com/gitlab-data/snowflake_spend.git
+    revision: v1.2.0
